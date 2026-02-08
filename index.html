@@ -1,1 +1,46 @@
-<h1>hello, World.</h1>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This Is Not A Palindrome</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: #000;
+        }
+        img {
+            max-width: 90vw;
+            max-height: 90vh;
+            object-fit: contain;
+            position: absolute;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        img.active {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <img src="5.png" class="active" alt="This is not a palindrome">
+    <img src="3.png" alt="TINAP | This is not a palindrome">
+    <img src="1.png" alt="TiNaP | This is not a palindrome">
+    
+    <script>
+        const images = document.querySelectorAll('img');
+        let current = 0;
+        
+        setInterval(() => {
+            images[current].classList.remove('active');
+            current = (current + 1) % images.length;
+            images[current].classList.add('active');
+        }, 4000);
+    </script>
+</body>
+</html>
